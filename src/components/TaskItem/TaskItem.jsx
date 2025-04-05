@@ -1,12 +1,12 @@
 import React from 'react';
 import SharedButton from '../ShareButton/SharedButton';
 
-const TaskItem = () => {
+const TaskItem = ({props}) => {
     return(
         <>
             <li>
-                <input type="checkbox" name="" id="" /> Task 1
-                <SharedButton props={{name: 'Delete'}}/>
+                <input type="checkbox" name="" id="" /> {props.name}
+                <SharedButton props={{name: 'Delete', handelClick:() => props.Delete(props.id)}} />
                 <SharedButton props={{name: 'Edit'}}/>
             </li>
         </>

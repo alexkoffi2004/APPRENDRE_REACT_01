@@ -18,11 +18,17 @@ const App = () => {
     copyTasks.push(currentNewTask)
     setTasks(copyTasks)
   }
+
+  const deleteTask = (id) => {
+    const deleteTasks = Tasks.filter((task) => task.id !== id)
+    setTasks(deleteTasks)
+    // console.log("delete Task")
+  }
   return (
     <>
         <TaskTitle/>
-        <CreateTask props={{setNewTask, addTask}}/>
-        <TaskList props= {{Tasks}} />
+        <CreateTask props={{setNewTask, addTask, newTask}}/>
+        <TaskList props= {{Tasks, deleteTask}} />
     </>
   )
 }
